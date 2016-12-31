@@ -1,18 +1,30 @@
 {
   "name": "unicode-conversion-maps",
-  "version": "master",
-  "registry": "github",
-  "jspm": {
-    "name": "indicjs/unicode-conversion-maps",
-    "main": "lib/maps.js",
-    "dependencies": {
-      "json": "systemjs/plugin-json@^0.2.3"
-    },
-    "devDependencies": {
-      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.17"
-    }
+  "version": "0.0.1",
+  "description": "This library holds the maps that are needed for conversion from ascii to unicode",
+  "main": "dist/maps.umd.js",
+  "module": "dist/maps.js",
+  "repository": "https://github.com/indicjs/unicode-conversion-maps",
+  "author": "Akshay S Dinesh <asdofindia@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "npm run createMaps && eslint lib test",
+    "createMaps": "node scripts/createMaps.js",
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "pretest": "npm run build",
+    "test": "mocha",
+    "prepublish": "npm test"
   },
+  "dependencies": {},
   "devDependencies": {
-    "jspm": "beta"
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-external-helpers": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-register": "^6.18.0",
+    "babelrc-rollup": "^3.0.0",
+    "mocha": "^3.2.0",
+    "rollup": "^0.39.2",
+    "rollup-plugin-babel": "^2.7.1"
   }
 }
