@@ -1,6 +1,6 @@
 {
   "name": "unicode-conversion-maps",
-  "version": "dev",
+  "version": "master",
   "registry": "github",
   "jspm": {
     "name": "indicjs/unicode-conversion-maps",
