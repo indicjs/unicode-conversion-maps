@@ -28,9 +28,10 @@ for (var i = 0; i < files.length; i++) {
   var contents = fs.readFileSync(files[i]);
   var jsonContent = JSON.parse(contents);
   var jsonString = JSON.stringify(jsonContent);
+  jsonString = jsonString.replace(/\\/g, '\\\\')
   var outfilename = path.basename(files[i], '.json');
   outfilename = 'lib/' + outfilename + '.js';
   var outfile = fs.openSync(outfilename, 'w');
-  var outstring = `export map=JSON.parse(${jsonString})`;
+  var outstring = `export let map=JSON.parse('${jsonString}')`;
   fs.writeSync(outfile, outstring);
 }
